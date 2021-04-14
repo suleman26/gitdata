@@ -18,8 +18,8 @@ jobs:
       with:
         dotnet-version: 3.1.x
     - name: Restore dependencies
-      run: dotnet restore https://github.com/suleman26/gitdata/blob/main/WebApplication1/WebApplication1/WebApplication1.csproj
-    - name: Build https://github.com/suleman26/gitdata/blob/main/WebApplication1/WebApplication1/WebApplication1.csproj
-      run: dotnet build https://github.com/suleman26/gitdata/blob/main/WebApplication1/WebApplication1/WebApplication1.csproj --no-restore
+      run: dotnet restore ${{git.workspace}}/WebApplication1/WebApplication1/WebApplication1.csproj
+    - name: Build 
+      run: dotnet build ${{git.workspace}}/WebApplication1/WebApplication1/WebApplication1.csproj --no-restore
     - name: Test
-      run: dotnet test https://github.com/suleman26/gitdata/blob/main/WebApplication1/WebApplication1/WebApplication1.csproj --no-build --verbosity normal
+      run: dotnet test ${{git.workspace}}/WebApplication1/WebApplication1/WebApplication1.csproj --no-build --verbosity normal
